@@ -42,7 +42,8 @@ for id, senha in dicionario.items():
 print(f"Arquivos com senha: {len(dicionario) - len(erros)}\nFalhas: {len(erros)}")
 print(f"\nArquivos com falhas: {erros}\n")
 index = 0
-print("=" * 30 + "\n" + "======== [LOG DE ERROS] ======\n" + "=" * 30)
+print("=" * 30 + "\n" + "======== [LOG DE ERROS] ======\n" + "=" * 30 + "\n")
 
 for erro in erros:
-    print(f"Arquivo: {erros[index]}\nMensagens: {mensagens[index]}\n")
+    print(f"Arquivo: {erro}\nMensagens: {mensagens[index]}\n")
+    index+1
