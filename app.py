@@ -1,5 +1,5 @@
 import pandas as pd
-from PyPDF2 import PdfWriter
+from PyPDF2 import PdfReader, PdfWriter
 
 # Excel
 col_nomes = "NOME ARQUIVO"
@@ -11,13 +11,18 @@ valor_nome = read[col_nomes].tolist()
 valor_senha = read[col_senhas].tolist()
 
 dicionario = {id: str(senha) for id, senha in zip(valor_nome, valor_senha)}
-for id, senha in dicionario.items():
-   print(f"Nome: {id}\nSenha: {senha}")
 
 # PDF
 writer = PdfWriter()
 
+
+
 for id, senha in dicionario.items():
-    writer.encrypt(senha)
+    reader = PdfReader(id)
+    for page in reader.pages:
+        writer.add_page(page)
+        writer.encrypt(user_password=senha)
+        with open(id, "wb") as f:
+            writer.write(f)
     print(f"Condômino: {id}\nSenha: {senha}")
 
