@@ -36,14 +36,16 @@ for id, senha in dicionario.items():
         print(f"Erro no arquivo: {valor_nome[index]}\nErro: {e}\nPosição: {index+1}/{len(dicionario)}\n")
         erros.append(valor_nome[index])
         mensagens.append(e)
-
     index += 1
 
 print(f"Arquivos com senha: {len(dicionario) - len(erros)}\nFalhas: {len(erros)}")
-print(f"\nArquivos com falhas: {erros}\n")
-index = 0
-print("=" * 30 + "\n" + "======== [LOG DE ERROS] ======\n" + "=" * 30 + "\n")
 
-for erro in erros:
-    print(f"Arquivo: {erro}\nMensagens: {mensagens[index]}\n")
-    index+1
+# Log de erros
+if len(erros) > 0:
+    index = 0
+    print(f"\nArquivos com falhas: {erros}\n")
+    print("=" * 30 + "\n" + "======== [LOG DE ERROS] ======\n" + "=" * 30 + "\n")
+
+    for erro in erros:
+        print(f"Arquivo: {erro}\nMensagens: {mensagens[index]}\n")
+        index+1
