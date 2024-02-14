@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from PyPDF2 import PdfReader, PdfWriter
 
