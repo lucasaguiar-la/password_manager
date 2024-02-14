@@ -24,10 +24,12 @@ for id, senha in dicionario.items():
     try:
         reader = PdfReader(id)
         if reader.is_encrypted:
+            print("Removendo senha...")
             reader.decrypt(senha)
         for page in reader.pages:
             writer.add_page(page)
             if reader.is_encrypted == False:
+                print("Criando senha...")
                 writer.encrypt(user_password=senha)
             with open(id, "wb") as f:
                 writer.write(f)
@@ -38,7 +40,7 @@ for id, senha in dicionario.items():
         mensagens.append(e)
     index += 1
 
-print(f"Arquivos com senha: {len(dicionario) - len(erros)}\nFalhas: {len(erros)}")
+print(f"Arquivos com sucesso: {len(dicionario) - len(erros)}\nArquivos com falhas: {len(erros)}")
 
 # Log de erros
 if len(erros) > 0:
