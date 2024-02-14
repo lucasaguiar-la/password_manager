@@ -7,6 +7,7 @@ col_caminho = "CAMINHO ARQUIVO"
 col_senhas = "SENHA ARQUIVO"
 col_nomes = "NOME ARQUIVO"
 arquivo_excel = "./senha/senhas_condominos.xlsx"
+#arquivo_excel = "./senha/teste.xlsx"
 
 read = pd.read_excel(arquivo_excel)
 valor_caminho = read[col_caminho].tolist()
@@ -21,6 +22,11 @@ erros = []
 mensagens = []
 writer = PdfWriter()
 
+# Compressor de PDF
+def comprimir_arquivo(arquivo):
+    os.system(f"C:\\Users\\Lucas.Aguiar\\Desktop\\gerador_senha\\pdfsizeopt\\pdfsizeopt.exe C:\\Users\\Lucas.Aguiar\\Desktop\\gerador_senha\\pdf\{arquivo} C:\\Users\\Lucas.Aguiar\\Desktop\\gerador_senha\\pdfsizeopt\\pdf\\{arquivo}")
+
+# Gerador de senha PDF
 for id, senha in dicionario.items():
     try:
         reader = PdfReader(id)
@@ -35,6 +41,8 @@ for id, senha in dicionario.items():
             with open(id, "wb") as f:
                 writer.write(f)
         print(f"Arquivo: {valor_nome[index]}\nSenha: {senha}\nPosição: {index+1}/{len(dicionario)}\n")
+        #print("Comprimindo, aguarde...\n")
+        #comprimir_arquivo(valor_nome[index])
     except Exception as e:
         print(f"Erro no arquivo: {valor_nome[index]}\nErro: {e}\nPosição: {index+1}/{len(dicionario)}\n")
         erros.append(valor_nome[index])
