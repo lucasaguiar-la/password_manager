@@ -1,5 +1,0 @@
--==[:.. T E R M I N A L ..:]==-
-
-C:\Users\Lucas.Aguiar\Desktop\gerador_senha\pdfsizeopt\pdfsizeopt
-C:\Users\Lucas.Aguiar\Desktop\gerador_senha\pdf\arquivo01.pdf (arquivo de entrada.pdf)
-C:\Users\Lucas.Aguiar\Desktop\gerador_senha\pdfsizeopt\pdf\arquivoReduzido.pdf (arquivo de saida.pdf)
