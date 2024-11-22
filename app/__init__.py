@@ -2,8 +2,8 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from app.routes import main
+from app.db import db
 
-db = SQLAlchemy()
 bcrypt = Bcrypt()
 
 def create_app():
