@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
+from app.routes import main
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
@@ -12,7 +13,6 @@ def create_app():
     db.init_app(app)
     bcrypt.init_app(app)
 
-    from app.routes import main
     app.register_blueprint(main)
 
     return app

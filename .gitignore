@@ -1,0 +1,19 @@
+# Ambiente virtual
+.venv
+.env
+
+# Arquivos de configuração do IDE
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Arquivos de log
+*.log
+
+# Arquivos de banco de dados
+*.sqlite3
+
+# Outros arquivos temporários
+*.tmp
+*.bak
