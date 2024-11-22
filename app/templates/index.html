@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Generate a New Password</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.account.label }}<br>
+            {{ form.account(size=32) }}
+        </div>
+        <div>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+    <h3>Stored Passwords</h3>
+    <ul>
+        {% for pwd in passwords %}
+        <li>{{ pwd.account }} - {{ pwd.username }} - {{ pwd.password }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
